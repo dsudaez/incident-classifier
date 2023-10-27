@@ -7,12 +7,12 @@ Contiene la logica de la aplicación en donde se podra testear el clasificador.
 - src/mining
 Contiene el código implicado en cada etapa de Text Mining: preprocesamiento, modelado, analizador de los datos, etc.
 
-## Levantar el proyecto Localmente
-### Prerequisitos
+# Levantar el proyecto Localmente
+## Prerequisitos
 - Tener instalado Python 3
 - Tener instalado pip
 
-### Paso a paso
+## Paso a paso
 1) Para empezar a correr el proyecto primero se debe crear un entorno virtual usando venv, debido a que es mejor tener nuestro proyecto aislado de la version principal de python que maneja la maquina. 
 Se puede seguir el siguiente tutorial: https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python
 
@@ -34,7 +34,7 @@ Se puede seguir el siguiente tutorial: https://www.freecodecamp.org/news/how-to-
     python ../mining/preprocessing/main.py // El path al archivo de cada main.py.
     ```
 
-## License
+# License
 
 MIT
 
