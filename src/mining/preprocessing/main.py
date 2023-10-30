@@ -12,4 +12,3 @@ def preprocess(incidencia):
     #stemmer = SnowballStemmer("spanish") # define stemmer
     #stemmer = PorterStemmer()
     #stem = stem_tokens(tokens, stemmer) # stem tokens
-

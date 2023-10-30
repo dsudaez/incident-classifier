@@ -4,8 +4,9 @@ from src.mining.preprocessing.main import preprocess
 
 def process_dataset(df, verbose=False):
     ## Preprocess
-    df["tokens"] = df["COMENTARIO"].apply(preprocess)
-    print(df)
+    df["PROCESADO"] = df["COMENTARIO"].apply(preprocess)
+    df_to_csv = pd.DataFrame(df)
+    df_to_csv.to_csv("C:/Users/deb/Documents/Tesis/incident-classifier/data/test.csv")
 
 
 
