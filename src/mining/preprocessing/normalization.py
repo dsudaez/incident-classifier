@@ -1,6 +1,6 @@
 import re
 import unicodedata
-from src.mining.preprocessing.utils.dictionary import abbreviations
+from src.mining.preprocessing.utils.abbreviations import abbreviations
 
 class Normalization:
 
@@ -8,10 +8,10 @@ class Normalization:
     def normalize(self, incid):
         if isinstance(incid, str):
             incid = self.minus(incid)
-            incid = self.check_spell(incid)
-            #incid = self.remove_punctuation_accents_and_numbers(incid)
-            #incid = self.word_repetition(incid)
-            #incid = self.convert_abbreviations(incid)
+            #incid = self.check_spell(incid)
+            incid = self.remove_punctuation_accents_and_numbers(incid)
+            incid = self.convert_abbreviations(incid)
+            incid = self.word_repetition(incid)
         else:
             print("error")
         return incid
@@ -54,10 +54,11 @@ class Normalization:
 
     #Funcion que convierte las abreviaturas a su forma original
     def convert_abbreviations(self, incid):
-        palabras = incid.split()  # Dividir el texto en palabras
-        palabras_convertidas = []
-        for palabra in palabras:
+        words = incid.split()  # Dividir el texto en palabras
+        words_converted = []
+        for word in words:
             # Verificar si la palabra es una abreviatura y convertirla si es necesario
-            palabra_convertida = abbreviations.get(palabra, palabra)
-            palabras_convertidas.append(palabra_convertida)
-        return " ".join(palabras_convertidas)  # Reunir las palabras convertidas en una cadena
+            word_converted = abbreviations.get(word, word)
+            words_converted.append(word_converted)
+
+        return " ".join(words_converted)  # Reunir las palabras convertidas en una cadena

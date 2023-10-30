@@ -1,4 +1,3 @@
-#Diccionario de abreviaciones
 abbreviations = {
     "sra": "senora",
     "sr": "senor",
@@ -20,10 +19,20 @@ abbreviations = {
     "hs":"horas",
     "viv":"vivienda",
     "f":"femenino",
-    "sgto":"sargento",
     "bº":"barrio",
     "mza":"manzana",
     "lte":"lote",
     "nn":"sin identificar",
     "flia":"familia",
+    "dlio":"domicilio",
+    "km":"kilometro",
+    "tel":"telefono",
+    "hs":"horas",
+    "av":"avenida",
+    "vw":"volkswagen",
+    "of":"oficial",
+    "ppal":"principal",
+    "aprox":"aproximadamente",
+    "sgto":"sargento",
+    "esc":"escuela",
 }
