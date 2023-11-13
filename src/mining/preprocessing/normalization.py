@@ -1,8 +1,12 @@
 import re
 import unicodedata
 from src.mining.preprocessing.utils.abbreviations import abbreviations
+from src.mining.commons.spellchecker import SpellCheck
 
 class Normalization:
+
+    def __init__(self):
+        self.spellchecker = SpellCheck()
 
     #Main function
     def normalize(self, incid):
@@ -18,14 +22,7 @@ class Normalization:
     
     # Función para corregir ortografía en español
     def check_spell(self, incid):
-        # palabras = incid.split()
-
-        # for i, palabra in enumerate(palabras):
-        #     palabra_corregida = spell.correction(palabra)
-        #     palabras[i] = palabra_corregida
-
-        #     texto_corregido = " ".join(palabras)
-        return incid
+        return self.spellchecker.correct_sentence(incid)
             
     # Función para convertir a minúsculas
     def minus(self, incid):
