@@ -1,10 +1,8 @@
 from src.mining.preprocessing.normalization import Normalization
 
-def preprocess(incidencia):
+def preprocess(df, columna):
     normalization = Normalization()
-    incidencia = normalization.normalize(incidencia);
-
-    return incidencia
+    df[columna] = df[columna].apply(normalization.normalize)
 
     ## Tokenization
     # tokens = custom_tokenize(inc, keep_alnum=False, keep_stop=False) # tokenize
@@ -12,4 +10,3 @@ def preprocess(incidencia):
     #stemmer = SnowballStemmer("spanish") # define stemmer
     #stemmer = PorterStemmer()
     #stem = stem_tokens(tokens, stemmer) # stem tokens
-

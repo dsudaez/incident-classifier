@@ -1,31 +1,28 @@
 import re
 import unicodedata
-from src.mining.preprocessing.utils.dictionary import abbreviations
+from src.mining.preprocessing.utils.abbreviations import abbreviations
+from src.mining.commons.spellchecker import SpellCheck
 
 class Normalization:
+
+    def __init__(self):
+        self.spellchecker = SpellCheck()
 
     #Main function
     def normalize(self, incid):
         if isinstance(incid, str):
             incid = self.minus(incid)
-            incid = self.check_spell(incid)
-            #incid = self.remove_punctuation_accents_and_numbers(incid)
-            #incid = self.word_repetition(incid)
-            #incid = self.convert_abbreviations(incid)
+            #incid = self.check_spell(incid)
+            incid = self.remove_punctuation_accents_and_numbers(incid)
+            incid = self.convert_abbreviations(incid)
+            incid = self.word_repetition(incid)
         else:
             print("error")
         return incid
     
     # Función para corregir ortografía en español
     def check_spell(self, incid):
-        # palabras = incid.split()
-
-        # for i, palabra in enumerate(palabras):
-        #     palabra_corregida = spell.correction(palabra)
-        #     palabras[i] = palabra_corregida
-
-        #     texto_corregido = " ".join(palabras)
-        return incid
+        return self.spellchecker.correct_sentence(incid)
             
     # Función para convertir a minúsculas
     def minus(self, incid):
@@ -54,10 +51,11 @@ class Normalization:
 
     #Funcion que convierte las abreviaturas a su forma original
     def convert_abbreviations(self, incid):
-        palabras = incid.split()  # Dividir el texto en palabras
-        palabras_convertidas = []
-        for palabra in palabras:
+        words = incid.split()  # Dividir el texto en palabras
+        words_converted = []
+        for word in words:
             # Verificar si la palabra es una abreviatura y convertirla si es necesario
-            palabra_convertida = abbreviations.get(palabra, palabra)
-            palabras_convertidas.append(palabra_convertida)
-        return " ".join(palabras_convertidas)  # Reunir las palabras convertidas en una cadena
+            word_converted = abbreviations.get(word, word)
+            words_converted.append(word_converted)
+
+        return " ".join(words_converted)  # Reunir las palabras convertidas en una cadena
